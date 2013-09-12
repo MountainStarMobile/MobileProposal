@@ -1,0 +1,201 @@
+//
+// Prefix header for all source files of the 'MobileProposal' target in the 'MobileProposal' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+#define environment_target [[[NSBundle mainBundle] infoDictionary] valueForKey:@"environment"]
+#define UUID_KEY @"UUID.key"
+#define UUID_VALUE [[NSUserDefaults standardUserDefaults] valueForKey:UUID_KEY]
+#define mli_copyright @"©2013 Copyright "
+#define login_limitIntervals 60 * 60 * 24 * 30
+#define minutesUnit 60
+#define hourUnit 60 * 60
+#define dayUnit 24 * 60 * 60
+#define system_version [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
+
+/*
+ 客戶資訊流水號
+ */
+#define customerSerialKey @"serial.key"
+#define customerSerialFirstKey @"firstSerial.key"
+#define policySerialKey @"poSerial.key"
+#define policySerialFirstKey @"poFirstSerial.key"
+#define reportItemSerial @"reportSerial.key"
+#define scheduleSerial @"scheduleSerial.key"
+
+typedef NS_ENUM(NSUInteger, MSPaneViewControllerType) {
+    MSPaneViewControllerTypeRed,
+    MSPaneViewControllerTypeGreen,
+    MSPaneViewControllerTypeBlue,
+    MSPaneViewControllerTypeMonospace,
+    MSPaneViewControllerTypeCount,
+};
+
+typedef NS_ENUM(NSUInteger, AmongFunctionTypeViewType) {
+    AmongFunctionTypeViewTypeCustomer,
+    AmongFunctionTypeViewTypeSchedule,
+    AmongFunctionTypeViewTypeProposal,
+    AmongFunctionTypeViewTypeSale,
+    AmongFunctionTypeViewTypeServiceTel,
+    AmongFunctionTypeViewTypeSetting,
+    AmongFunctionTypeViewTypeCount,
+};
+
+typedef NS_ENUM (NSUInteger, AmongPersonalViewType) {
+    AmongPersonalViewTypePersonal,
+    AmongPersonalViewTypePersonalModify,
+    AmongProposalViewTypeCount,
+};
+
+#define system_version [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
+
+
+/*
+ 公用存取變數
+ */
+#define key_agentCode @"agentCode.key"
+#define key_password @"password.key"
+/*
+ 
+ */
+#define oddCellBackgroundColor [UIColor colorWithRed:214.0f/255.0f green:214.0f/255.0f blue:236.0f/255.0f alpha:0.5]
+#define evenCellBackgroundColor [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:0.5]
+#define navigationBarColor [UIColor colorWithRed:192.0f/255.0f green:201.0f/255.0f blue:171.0f/205.0f alpha:0.5]
+#define navigationBarButtonColor [UIColor colorWithRed:170.0f/255.0f green:178.0f/255.0f blue:182.0f/255.0f alpha:0.5]
+#define toolBarColor [UIColor colorWithRed:192.0f/255.0f green:201.0f/255.0f blue:171.0f/205.0f alpha:0.5]
+#define toolBarButtonColor [UIColor colorWithRed:170.0f/255.0f green:178.0f/255.0f blue:182.0f/255.0f alpha:0.5]
+#define whiteBgImage [UIImage imageNamed:@"bg_white.jpg"]
+
+/*
+ information Field Key
+ */
+#define customerClientIdKey @"clientId.key"
+#define customerNameKey @"name.key"
+#define customerRelationKey @"relation.key"
+#define customerSexKey @"sex.key"
+#define customerBirthdayKey @"birthday.key"
+#define customerTel1Key @"tel1.key"
+#define customerTel2Key @"tel2"
+#define customerCellKey @"cellphone.key"
+#define customerEmailKey @"email.key"
+#define customerZipKey @"zip.key"
+#define customerAddressKey @"address.key"
+#define customerOccuCodeKey @"occuCode.key"
+#define customerOccuLevelKey @"occuLevel.key"
+#define customerFeeKey @"fee.key"
+#define customerFacebookKey @"facebook.key"
+#define customerGooglePlusKey @"googlePlus.key"
+#define customerNickNameKey @"nickName.key"
+/*
+ customerRelationKey
+ */
+#define CMRelationParentKey @"parent.key"
+#define CMRelationChildrenKey @"children.key"
+#define CMRelationManagerKey @"manager.key"
+#define CMRelationSubordinatorKey @"subordinator.key"
+#define CMRelationBrotherKey @"brother.key"
+#define CMRelationSisterKey @"sister.key"
+#define CMRelationFriendKey @"friend.key"
+#define CMRelationCoupleKey @"couple.key"
+#define CMRelationLoverKey @"lover.key"
+#define CMRelationColleagueKey @"colleague.key"
+/*
+ relationKey
+ */
+#define relationI1 @"i1"
+#define relationO1 @"o1"
+#define relationSS @"ss"
+#define relationC @"C"
+
+/*
+ proposalTypeName
+ */
+#define proposalType_lf @"lf"
+#define proposalType_invs @"invs"
+#define proposalType_ul @"ul"
+#define proposalType_hva @"hva"
+#define proposalType_an @"an"
+
+/*
+ sqlite檔案清單
+ */
+#define db_extension @"sqlite"
+#define db_saveProposal @"saveProposal"
+#define db_pass @"pass"
+#define db_ref @"ref"
+#define db_data @"data"
+#define db_insuranceRef @"insuranceRef"
+#define db_lfRef @"lfRef"
+#define db_lfAret @"lfAret"
+#define db_factor @"factor"
+#define db_arpr @"arpr"
+#define db_cp @"cp"
+#define db_cv @"cv"
+#define db_pv @"pv"
+#define db_rpu @"rpu"
+#define db_sa @"sa"
+#define db_anRef @"anRef"
+#define db_invsRef @"invsRef"
+#define db_hvaRef @"hvaRef"
+#define db_vaRef @"vaRef"
+#define db_vivhs @"vivhs"
+/*
+ planType & planAid
+ */
+#define selectPlanCompany @"company.key"
+#define selectPlanCategory @"category.key"
+#define selectPlanTypeKey @"planType.key"
+#define selectPlanAbbrKey @"planAbbr.key"
+#define selectPlanAidKey @"planAid.key"
+#define selectPlanCodeOrderKey @"planCodeOrder.key"
+#define selectPlanCodeKey @"planCode.key"
+#define planCategoryMain @"P"
+#define planCategoryElse @"R"
+#define planTypeL @"L"
+#define planTypeR @"R"
+#define planTypeA @"A"
+#define planTypeM @"M"
+#define planTypeC @"C"
+#define planTypeV @"V"
+#define planTypeAn @"An"
+/*
+ 定義input record的key
+ */
+#define input_modx @"modx.key"
+#define input_relation @"relation.key"
+#define input_faceamt @"faceamt.key"
+#define input_socialInsurance @"socialInsurance.key"
+#define input_declareRate @"declareRate"
+#define input_wprPlan @"wprPlan.key"
+#define input_wprType @"wprType.key"
+#define input_wprYear @"wprYear.key"
+#define input_invsTargetPrem @"invsTargetPrem.key"
+#define input_firstPrem @"firstPrem.key"
+#define input_invsPrem @"invsPrem.key"
+#define input_invsDurs @"invsDurs.key"
+#define input_invsBonusRate @"invsBonusRate.key"
+#define input_invsRate @"invsRate.key"
+#define input_bodyType @"bodyType.key"
+#define input_anRate   @"anRate.key"
+#define input_anDur    @"anDur.key"
+#define input_anAge    @"anAge.key"
+#define input_anPrem   @"anPrem.key"
+#define input_cityRate @"cityRate.key"
+#define input_periodCertain @"periodCertain.key"
+#define input_planFee @"planFee.key"
+#define input_anAccuRate1 @"accuRate1.key"
+#define input_anAccuRate2 @"accuRate2.key"
+#define input_anAccuRate3 @"accuRate3.key"
+#define input_anAccuRate4 @"accuRate4.key"
+#define input_anAccuRate5 @"accuRate5.key"
+#define input_anAccuRate6 @"accuRate6.key"
