@@ -47,7 +47,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self checkLoginStatus];
+    //[self checkLoginStatus];
 }
 
 - (void)viewWillAppear:(BOOL)animated
