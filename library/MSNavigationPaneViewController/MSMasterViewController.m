@@ -54,6 +54,8 @@ typedef NS_ENUM(NSUInteger, MSMasterViewControllerTableViewSectionType) {
 @property (nonatomic, strong) NSDictionary *personalClasses;
 @property (nonatomic, strong) NSArray *tableViewSectionBreaks;
 
+- (void)createHeaderView;
+
 @end
 
 @implementation MSMasterViewController
@@ -112,12 +114,24 @@ typedef NS_ENUM(NSUInteger, MSMasterViewControllerTableViewSectionType) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self createHeaderView];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)])
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    UIImageView *sbg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sidebarbg"]];
+    UIImageView *sbg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_white.jpg"]];
     [sbg setContentMode:UIViewContentModeScaleAspectFill];
     [sbg setFrame:self.tableView.bounds];
     [self.tableView setBackgroundView:sbg];
     self.view.backgroundColor = [UIColor clearColor];
+}
+
+- (void)createHeaderView
+{
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:nil];
+    [imageView setFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+    [self.tableView setTableHeaderView:imageView];
 }
 
 #pragma mark - MSMasterViewController
@@ -214,14 +228,14 @@ typedef NS_ENUM(NSUInteger, MSMasterViewControllerTableViewSectionType) {
 }
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIImageView *imageview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"headerView_bg3.png"]];
+    UIImageView *imageview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"xxheaderView_bg3.png"]];
     [imageview setFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0,
                                                                self.view.frame.size.width,
                                                                20)];
     [label setBackgroundColor:[UIColor clearColor]];
     [label setFont:[UIFont fontWithName:@"Helvetica-Bold" size:16]];
-    [label setTextColor:[UIColor whiteColor]];
+    [label setTextColor:[UIColor darkGrayColor]];
     if (section == 0)
     {
         [label setText:@"帳號"];

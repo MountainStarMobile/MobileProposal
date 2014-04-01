@@ -108,6 +108,10 @@ typedef NS_ENUM(NSUInteger, proposalManageType) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)])
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     self.title = [NSString stringWithFormat:@"%@",aProposal.fileName==nil?@"":aProposal.fileName];
     HMSegmentedControl *segmentedControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
     

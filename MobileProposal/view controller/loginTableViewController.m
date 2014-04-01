@@ -66,6 +66,12 @@ typedef NS_ENUM(NSUInteger, loginButtonTag) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)])
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
     [self createBarItem];
     UIImageView *imageview = [[UIImageView alloc] initWithImage:whiteBgImage];
     [self.tableView setBackgroundView:imageview];
